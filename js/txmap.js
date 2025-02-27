@@ -9,7 +9,6 @@ $.ajax({
     dataType: 'jsonp',
     success: function (res) {
         ipLoacation = res;
-        showWelcome();
     }
 })
 function getDistance(e1, n1, e2, n2) {
@@ -29,10 +28,7 @@ function getDistance(e1, n1, e2, n2) {
 }
 
 function showWelcome() {
-    if(!ipLoacation || !ipLoacation.result || !ipLoacation.result.location) {
-        console.log("获取位置信息失败");
-        return;
-    }
+
     let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
     let pos = ipLoacation.result.ad_info.nation;
     let ip;
@@ -221,7 +217,7 @@ function showWelcome() {
         document.getElementById("welcome-info").innerHTML =
             `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:red">${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color:red">${dist}</span> 公里，当前的IP地址为： <span style="color:red">${ip}</span>， ${posdesc}</b>`;
     } catch (err) {
-        console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
+        // console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
     }
 }
 window.onload = showWelcome;
