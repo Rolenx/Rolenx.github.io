@@ -66,6 +66,9 @@ function showWelcome() {
                 case "北京市":
                     posdesc = "北——京——欢迎你~~~";
                     break;
+                case "重庆市":
+                    posdesc = "巴适得板";
+                    break;
                 case "天津市":
                     posdesc = "讲段相声吧。";
                     break;
@@ -147,7 +150,27 @@ function showWelcome() {
                     posdesc = "74751，长沙斯塔克。";
                     break;
                 case "广东省":
-                    posdesc = "老板来两斤福建人。";
+                    switch (ipLoacation.result.ad_info.city) {
+                        case "深圳市":
+                            posdesc = "神针大舞台，爱卷你就来，来了就是神针人";
+                            break;
+                        case "广州市":
+                            posdesc = "得闲饮茶啦～";
+                            break;
+                        // case "驻马店市":
+                        //     posdesc = "峰峰有奇石，石石挟仙气。嵖岈山的花很美哦！";
+                        //     break;
+                        // case "开封市":
+                        //     posdesc = "刚正不阿包青天。";
+                        //     break;
+                        // case "洛阳市":
+                        //     posdesc = "洛阳牡丹甲天下。";
+                        //     break;
+                        default:
+                            posdesc = "老板来两斤福建人。";
+                            break;
+                    }
+                    
                     break;
                 case "广西壮族自治区":
                     posdesc = "桂林山水甲天下。";
