@@ -213,7 +213,7 @@ function showWelcome() {
     else timeChange = "夜深了，早点休息，少熬夜。";
 
     try {
-        if (ip.length > 15) {
+        if (ip.length > 20) {
             ip = '你的IP太长了，不想告诉你';
         }
         //自定义文本和需要放的位置
