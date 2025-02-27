@@ -1,7 +1,7 @@
 //get请求
 $.ajax({
     type: 'get',
-    url: 'https://apis.map.qq.com/ws/location/v1/ip?key=OZDBZ-HRWLI-I57GN-UOA6D-QONP2-BZBCD',
+    url: 'https://apis.map.qq.com/ws/location/v1/ip',
     data: {
         key: 'OZDBZ-HRWLI-I57GN-UOA6D-QONP2-BZBCD',
         output: 'jsonp',
@@ -9,6 +9,7 @@ $.ajax({
     dataType: 'jsonp',
     success: function (res) {
         ipLoacation = res;
+        showWelcome();
     }
 })
 function getDistance(e1, n1, e2, n2) {
