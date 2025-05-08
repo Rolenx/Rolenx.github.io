@@ -451,10 +451,16 @@ queueMicrotask(() => {
 
   // Add pjax:complete event listener to reload Waline
   document.addEventListener('pjax:complete', () => {
-    const walineWrap = document.getElementById('waline-wrap');
-    if (walineWrap) {
-      loadWaline();
-    }
+    const checkWalineWrap = () => {
+      const walineWrap = document.getElementById('waline-wrap');
+      if (walineWrap) {
+        loadWaline();
+      } else {
+        // Retry after a short delay if #waline-wrap is not yet available
+        setTimeout(checkWalineWrap, 100);
+      }
+    };
+    checkWalineWrap();
   });
 })()</script><input type="hidden" name="page-type" id="page-type" value="album_detail"></div><script>window.addEventListener('load', () => {
   const changeContent = content => {

@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-05-08 22:58:10',
+  postUpdate: '2025-05-08 23:11:21',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -5116,10 +5116,16 @@ queueMicrotask(() => {
 
   // Add pjax:complete event listener to reload Waline
   document.addEventListener('pjax:complete', () => {
-    const walineWrap = document.getElementById('waline-wrap');
-    if (walineWrap) {
-      loadWaline();
-    }
+    const checkWalineWrap = () => {
+      const walineWrap = document.getElementById('waline-wrap');
+      if (walineWrap) {
+        loadWaline();
+      } else {
+        // Retry after a short delay if #waline-wrap is not yet available
+        setTimeout(checkWalineWrap, 100);
+      }
+    };
+    checkWalineWrap();
   });
 })()</script><input type="hidden" name="page-type" id="page-type" value="anzhiyu"></div><script>window.addEventListener('load', () => {
   const changeContent = content => {
