@@ -455,12 +455,20 @@ queueMicrotask(() => {
     }
   }
 
-  if ('Waline' === 'Waline' || !false) {
-    if (false) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  if ('Waline' === 'Waline' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
     else setTimeout(loadWaline, 0)
   } else {
     window.loadOtherComment = loadWaline
   }
+
+  // Add pjax:complete event listener to reload Waline
+  document.addEventListener('pjax:complete', () => {
+    const walineWrap = document.getElementById('waline-wrap');
+    if (walineWrap) {
+      loadWaline();
+    }
+  });
 })()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
   const changeContent = content => {
     if (content === '') return content
