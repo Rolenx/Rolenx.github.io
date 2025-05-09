@@ -470,7 +470,7 @@ queueMicrotask(() => {
   }, 1000);
 })();</script><div class="js-pjax"><script>(() => {
   let initFn = window.walineFn || null
-
+  console.log('Initializing Waline');
   const initWaline = (Fn) => {
     const waline = Fn(Object.assign({
       el: '#waline-wrap',
