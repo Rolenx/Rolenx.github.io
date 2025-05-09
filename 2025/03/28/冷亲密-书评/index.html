@@ -458,16 +458,28 @@ queueMicrotask(() => {
   }
 
   const loadWaline = async () => {
-    if (initFn) initWaline(initFn)
-    else {
-      await getCSS('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline.css')
-      if (true) await getCSS('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline-meta.css')
-      const { init } = await import('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline.js')
-      initFn = init || Waline.init
-      initWaline(initFn)
-      window.walineFn = initFn
+    try {
+      if (initFn) {
+        console.log('Using existing Waline init function.');
+        initWaline(initFn);
+      } else {
+        console.log('Loading Waline resources...');
+        await getCSS('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline.css');
+        console.log('Waline CSS loaded.');
+        if (true) {
+          await getCSS('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline-meta.css');
+          console.log('Waline meta CSS loaded.');
+        }
+        const { init } = await import('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline.js');
+        initFn = init || Waline.init;
+        console.log('Waline JS loaded.');
+        initWaline(initFn);
+        window.walineFn = initFn;
+      }
+    } catch (error) {
+      console.error('Failed to load Waline resources:', error);
     }
-  }
+  };
 
   if ('Waline' === 'Waline' || !true) {
     if (true) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
