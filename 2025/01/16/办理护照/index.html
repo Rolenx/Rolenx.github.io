@@ -699,6 +699,10 @@ document.addEventListener('pjax:complete', function () {
     item.parentNode.replaceChild(newScript, item)
   })
 
+  // 这里添加重载 Waline
+  typeof window.loadOtherComment === 'function' && window.loadOtherComment()
+
+
   GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
   typeof panguInit === 'function' && panguInit()
