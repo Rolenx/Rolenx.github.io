@@ -4885,10 +4885,6 @@ body[data-type='about'] #web_bg {
   top: 0;
   left: 0;
 }
-.author-content-item.like-games {
-  min-height: 230px;
-  color: var(--anzhiyu-white);
-}
 .author-content-item.like-technology {
   min-height: 230px;
   color: var(--anzhiyu-white);
@@ -7852,9 +7848,6 @@ body[data-type="music"] .s-sticker div {
   -o-transition: 0.3s;
   -ms-transition: 0.3s;
   transition: 0.3s;
-}
-body:has(#console.show) #nav-music {
-  display: none !important;
 }
 @media screen and (max-width: 1400px) {
   body #anMusic-page #anMusicSwitching,
@@ -16333,6 +16326,12 @@ li.card-category-list-item {
   background: url("/img/comment_bg.png") 100% 100% no-repeat;
 }
 #vcomment textarea:focus {
+  background-image: none;
+}
+#waline-wrap textarea {
+  background: url("/img/comment_bg.png") 100% 100% no-repeat;
+}
+#waline-wrap textarea:focus {
   background-image: none;
 }
 .fireworks {

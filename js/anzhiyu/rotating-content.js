@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       { url: '/img/about_img/detroit_become_human.jpg', tips: '第九艺术', title: 'RA9', bottom: 'Detroit: Become Human' },
       { url: '/img/about_img/seker0.jpg', tips: '第九艺术', title: '犹豫就会败北', bottom: 'Sekiro: Shadows Die Twice' },
       { url: '/img/about_img/death_stranding.jpg', tips: '第九艺术', title: 'Don\'t be so serious', bottom: 'Death Stranding' },
+      { url: 'https://imgbed.yesord.top/file/home/1758895300408_22-devil-may-cry-5-hasn-t-aged-a-day.jpg', tips: '第九艺术', title: 'I am the storm that is approaching!', bottom: 'Devil May Cry 5' },
     
       
       // 添加更多图片和文字
